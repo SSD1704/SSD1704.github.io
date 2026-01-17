@@ -120,13 +120,11 @@
 
       <div class="row">
         <button onclick="copyText('addr-erc')">📋 Adresse kopieren</button>
-        <a class="btn secondary" href="ethereum:0x169D365e25ba16359Ed1f86f0a93C401c26ed18e">📲 Wallet öffnen (falls unterstützt)</a>
       </div>
 
       <div class="qr">
         <!-- QR via QRServer (keine Anmeldung nötig) -->
         <img alt="ERC-20 QR" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=0x169D365e25ba16359Ed1f86f0a93C401c26ed18e">
-        <div class="tiny">QR enthält nur die Adresse (0x…).</div>
       </div>
     </section>
 
@@ -139,16 +137,13 @@
 
       <div class="row">
         <button onclick="copyText('addr-trc')">📋 Adresse kopieren</button>
-        <a class="btn secondary" href="https://tronscan.org/#/address/TGS6oPmf8V8jrtLrvSmSBbcoEWPKWNycYd">🔎 In Tronscan ansehen</a>
       </div>
 
       <div class="qr">
         <img alt="TRC-20 QR" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=TGS6oPmf8V8jrtLrvSmSBbcoEWPKWNycYd">
-        <div class="tiny">QR enthält nur die Adresse (T…).</div>
       </div>
     </section>
 
-    <footer>Tip: Nach dem NFC-Beschreiben den Tag auf „Read-only“ setzen, damit niemand den Link austauschen kann.</footer>
   </div>
 
   <script>
