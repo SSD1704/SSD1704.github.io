@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USDT senden</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f5f6f8;
+      color: #111;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 18px; }
+    header {
+      background: #111827;
+      color: #fff;
+      padding: 18px;
+      border-radius: 14px;
+      margin-top: 10px;
+    }
+    header h1 { margin: 0 0 6px 0; font-size: 22px; }
+    header p { margin: 0; opacity: 0.9; line-height: 1.35; }
+    .warn {
+      margin: 14px 0 0 0;
+      background: #fff3cd;
+      border: 1px solid #ffe69c;
+      color: #664d03;
+      padding: 12px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .card h2 { margin: 0 0 6px 0; font-size: 18px; }
+    .sub { margin: 0 0 12px 0; color: #444; font-size: 14px; }
+    .addrbox {
+      background: #f3f4f6;
+      border-radius: 12px;
+      padding: 12px;
+      word-break: break-all;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1.35;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 12px;
+    }
+    button, a.btn {
+      appearance: none;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #111827;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    button.secondary, a.secondary {
+      background: #e5e7eb;
+      color: #111;
+    }
+    .qr {
+      margin-top: 14px;
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+    }
+    .qr img {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.08);
+      background: #fff;
+    }
+    .tiny { font-size: 12px; color: #666; text-align: center; line-height: 1.3; }
+    footer { margin: 18px 0 8px 0; color: #666; font-size: 12px; text-align: center; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0b1220; color: #e5e7eb; }
+      .card { background: #0f172a; border-color: rgba(255,255,255,0.08); }
+      .addrbox { background: #111827; border-color: rgba(255,255,255,0.08); }
+      .sub, .tiny, footer { color: #a1a1aa; }
+      button.secondary, a.secondary { background: #1f2937; color: #e5e7eb; }
+      .warn { background: #2a1f0a; border-color: #6b4f00; color: #ffe69c; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>USDT senden</h1>
+      <p>Wähle das richtige Netzwerk und sende USDT an die passende Adresse.</p>
+      <div class="warn">⚠️ <b>Wichtig:</b> Falsches Netzwerk (ERC-20 vs. TRC-20) kann zum <b>Verlust</b> der Coins führen.</div>
+    </header>
+
+    <!-- ERC-20 FIRST -->
+    <section class="card" id="erc20">
+      <h2>USDT – Ethereum (ERC-20)</h2>
+      <p class="sub">Nur über <b>Ethereum / ERC-20</b> senden.</p>
+
+      <div class="addrbox" id="addr-erc">0x169D365e25ba16359Ed1f86f0a93C401c26ed18e</div>
+
+      <div class="row">
+        <button onclick="copyText('addr-erc')">📋 Adresse kopieren</button>
+        <a class="btn secondary" href="ethereum:0x169D365e25ba16359Ed1f86f0a93C401c26ed18e">📲 Wallet öffnen (falls unterstützt)</a>
+      </div>
+
+      <div class="qr">
+        <!-- QR via QRServer (keine Anmeldung nötig) -->
+        <img alt="ERC-20 QR" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=0x169D365e25ba16359Ed1f86f0a93C401c26ed18e">
+        <div class="tiny">QR enthält nur die Adresse (0x…).</div>
+      </div>
+    </section>
+
+    <!-- TRC-20 SECOND -->
+    <section class="card" id="trc20">
+      <h2>USDT – Tron (TRC-20)</h2>
+      <p class="sub">Nur über <b>Tron / TRC-20</b> senden.</p>
+
+      <div class="addrbox" id="addr-trc">TGS6oPmf8V8jrtLrvSmSBbcoEWPKWNycYd</div>
+
+      <div class="row">
+        <button onclick="copyText('addr-trc')">📋 Adresse kopieren</button>
+        <a class="btn secondary" href="https://tronscan.org/#/address/TGS6oPmf8V8jrtLrvSmSBbcoEWPKWNycYd">🔎 In Tronscan ansehen</a>
+      </div>
+
+      <div class="qr">
+        <img alt="TRC-20 QR" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=TGS6oPmf8V8jrtLrvSmSBbcoEWPKWNycYd">
+        <div class="tiny">QR enthält nur die Adresse (T…).</div>
+      </div>
+    </section>
+
+    <footer>Tip: Nach dem NFC-Beschreiben den Tag auf „Read-only“ setzen, damit niemand den Link austauschen kann.</footer>
+  </div>
+
+  <script>
+    async function copyText(id) {
+      const text = document.getElementById(id).innerText.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        alert("Kopiert ✅");
+      } catch (e) {
+        // Fallback
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        alert("Kopiert ✅");
+      }
+    }
+  </script>
+</body>
+</html>
